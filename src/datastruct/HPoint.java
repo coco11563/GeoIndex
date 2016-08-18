@@ -5,11 +5,10 @@ package datastruct;
 class HPoint {
 
 	protected double[] coord;
-
 	protected HPoint(int n) {
 		coord = new double[n];
 	}
-
+	
 	protected HPoint(double[] x) {
 
 		coord = new double[x.length];
@@ -40,5 +39,7 @@ class HPoint {
 		}
 		return s;
 	}
+
+	
 
 }

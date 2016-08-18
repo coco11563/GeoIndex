@@ -86,11 +86,12 @@ public class getCityName {
 	private static String[] pcn_getProCityNameURL(double lat , double lng) throws  IOException
 	{
 		String[]			cityName			=		null;
+		double 				location[] 			= 		{lat,lng} ;	
 		try
 		{
-			double 				location[] 			= 		{lat,lng} ;	
+		
 //			String 				url						=		"http://api.map.baidu.com/geocoder?location="+location[0]+","+location[1]+"&output=json&key=28bcdd84fae25699606ffad27f8da77b" ;
-			String  			url						=  		"http://api.map.baidu.com/geocoder/v2/?ak=Q9D8ftvpm5PRFvAK4gkM4HguKuVRXCHe&location="+location[0]+","+location[1]+"&output=json&coordtype=gcj02ll";
+			String  			url						=  		"http://api.map.baidu.com/geocoder/v2/?ak=yp6K3a5ISOu5OsZtGzwkH8SHe1KRZa5Q&location="+location[0]+","+location[1]+"&output=json&coordtype=gcj02ll";
 			String 				baiduLocation 	= 		pcn_connUrl(url) ;
 			JSONObject 		temp_object		=		new JSONObject(baiduLocation) ;
 			temp_object		= 		temp_object.getJSONObject("result") ;
@@ -110,6 +111,7 @@ public class getCityName {
 			cityName		=		new String[2] ;
 			cityName[0]	=	"Exception" ;
 			cityName[1]	=	"Exception" ;
+			System.out.println ( location[0]+"\t"+location[1] + ":\t" + cityName[0]+"-"+cityName[1]);
 			return cityName;
 		}
 	}
@@ -132,7 +134,7 @@ public class getCityName {
 	public  static void main(String args[]) throws IOException
 	{
 		String[]			cityName			=		null;
-		cityName = pcn_getProCityNameURL(41.5945950000,87.5253930000) ;
+		cityName = pcn_getProCityNameURL(36.400000000000055,114.4000000000001) ;
 		System.out.println(cityName[0]);
 	}
 	
